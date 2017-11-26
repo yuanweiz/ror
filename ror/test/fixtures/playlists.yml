@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ltitle: MyString
+  ldate: 2017-11-26
+  lpublic: false
+
+two:
+  ltitle: MyString
+  ldate: 2017-11-26
+  lpublic: false
