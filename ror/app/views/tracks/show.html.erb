@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ttitle:</strong>
+  <%= @track.ttitle %>
+</p>
+
+<p>
+  <strong>Tgenre:</strong>
+  <%= @track.tgenre %>
+</p>
+
+<p>
+  <strong>Aid:</strong>
+  <%= @track.aid %>
+</p>
+
+<%= link_to 'Edit', edit_track_path(@track) %> |
+<%= link_to 'Back', tracks_path %>

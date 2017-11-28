@@ -1,3 +1,7 @@
 class ApplicationRecord < ActiveRecord::Base
-  self.abstract_class = true
+    def self.table_name
+        #puts self.ancestors.inspect
+        self.name.to_s.downcase
+    end
+    self.abstract_class = true
 end

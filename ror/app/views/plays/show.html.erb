@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Follow:</strong>
+  <%= @play.Follow %>
+</p>
+
+<p>
+  <strong>Rate:</strong>
+  <%= @play.Rate %>
+</p>
+
+<%= link_to 'Edit', edit_play_path(@play) %> |
+<%= link_to 'Back', plays_path %>
