@@ -4,7 +4,7 @@ class CreateTracks < ActiveRecord::Migration[5.0]
     create_table(:track, primary_key: 'tid')do |t|
       t.string :ttitle
       t.string :tgenre
-      t.integer :aid
+      t.integer :aid  #cascade not null
       #t.integer :aid , null: false, references: [ :artist, :aid]
     end
     #add_foreign_key :track, :artist, column: :aid, primary_key: :aid

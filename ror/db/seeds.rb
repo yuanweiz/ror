@@ -110,3 +110,25 @@ Follow.create([
     {follower: 3, followee: 1},
     {follower: 3, followee: 5},
 ])
+
+Like.create([
+    {uid: 1, aid: 1, ts:"2017/01/01" },
+    {uid: 1, aid: 2, ts:"2017/01/01" },
+    {uid: 1, aid: 3, ts:"2017/01/01" },
+    {uid: 1, aid: 7, ts:"2017/01/01" },
+    {uid: 2, aid: 1, ts:"2017/01/01" },
+    {uid: 2, aid: 2, ts:"2017/01/01" },
+    {uid: 2, aid: 3, ts:"2017/01/01" },
+    {uid: 2, aid: 4, ts:"2017/01/01" },
+    {uid: 3, aid: 2, ts:"2017/01/01" },
+    {uid: 3, aid: 3, ts:"2017/01/01" },
+    {uid: 3, aid: 7, ts:"2017/01/01" },
+    {uid: 4, aid: 2, ts:"2017/01/01" },
+    {uid: 4, aid: 3, ts:"2017/01/01" },
+    {uid: 4, aid: 4, ts:"2017/01/01" },
+    {uid: 4, aid: 7, ts:"2017/01/01" },
+])
+
+Rate.create([
+    { uid: 1, tid: 1, score: 10, ts: "2017/11/01" },
+])

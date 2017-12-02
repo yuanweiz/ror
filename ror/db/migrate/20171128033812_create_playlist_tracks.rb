@@ -6,5 +6,6 @@ class CreatePlaylistTracks < ActiveRecord::Migration[5.0]
     end
     add_foreign_key :playlisttrack, :playlist, column: :lid, primary_key: :lid
     add_foreign_key :playlisttrack, :track, column: :tid, primary_key: :tid
+    execute "ALTER TABLE \"playlisttrack\" ADD PRIMARY KEY (lid,tid);"
   end
 end

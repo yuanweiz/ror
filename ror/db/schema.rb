@@ -54,14 +54,15 @@ ActiveRecord::Schema.define(version: 20171128033812) do
     t.integer  "uid"
   end
 
-  create_table "playlisttrack", id: false, force: :cascade do |t|
-    t.integer "lid"
-    t.integer "tid"
+  create_table "playlisttrack", primary_key: ["lid", "tid"], force: :cascade do |t|
+    t.integer "lid", null: false
+    t.integer "tid", null: false
   end
 
   create_table "rate", primary_key: ["uid", "tid"], force: :cascade do |t|
-    t.integer  "uid", null: false
-    t.integer  "tid", null: false
+    t.integer  "uid",   null: false
+    t.integer  "tid",   null: false
+    t.float    "score"
     t.datetime "ts"
   end
 
@@ -73,6 +74,8 @@ ActiveRecord::Schema.define(version: 20171128033812) do
 
   create_table "user", primary_key: "uid", force: :cascade do |t|
     t.string "uname"
+    t.string "ulogin"
+    t.string "upassword"
     t.string "uemail"
     t.string "ucity"
   end

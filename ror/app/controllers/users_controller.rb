@@ -21,13 +21,17 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.new(user_params)
+      params = user_params
+      passwd = params[:upassword]
+      encrypted_passwd = BCrypt::Password.create(passwd)
+      params[:upassword]=encrypted_passwd
+      @user = User.new(params)
 
-    if @user.save
-      redirect_to @user, notice: 'User was successfully created.'
-    else
-      render :new
-    end
+      if @user.save
+          redirect_to @user, notice: 'User was successfully created.'
+      else
+          render :new
+      end
   end
 
   # PATCH/PUT /users/1
@@ -53,6 +57,20 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:uname, :uemail, :ucity)
+      params.require(:user).permit(:uname, :uemail, :ucity, :upassword, :ulogin)
+      #filtered(params.require(:user))
     end
+    #def filtered(user_params)
+    #    error_str = nil
+    #    loop do
+    #        p1, p2 = user_params[:upassword], user_params[:confirmation]
+    #        if p1!=p2 then
+    #            error_str='password and confirmation do not match'
+    #            break
+    #        end
+    #        break
+    #    end
+    #    return nil unless error_str.nil?
+    #    return user_params.permit(:uemail, :ulogin, :ucity, :ulogin, :upassword)
+    #end
 end

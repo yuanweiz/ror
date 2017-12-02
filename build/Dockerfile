@@ -7,3 +7,5 @@ ADD Gemfile /build/Gemfile
 ADD Gemfile.lock /build/Gemfile.lock
 RUN bundle install
 WORKDIR /ror
+RUN gem install byebug
+RUN gem install bcrypt
