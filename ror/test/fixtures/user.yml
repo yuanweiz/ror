@@ -1,49 +1,50 @@
+
 user0:
    uid: 1
    uname: Si Li
-   ulogin: 
-   upassword: 
+   ulogin: u1
+   upassword: <%= cipher_text %>
    uemail: sili@nyu.edu
    ucity: New York
 user1:
    uid: 2
    uname: Wu Wang
-   ulogin: 
-   upassword: 
+   ulogin: u2
+   upassword: <%= cipher_text %>
    uemail: wuwang@nyu.edu
    ucity: Washington
 user2:
    uid: 3
    uname: Liu Zhao
-   ulogin: 
-   upassword: 
+   ulogin: u3
+   upassword: <%= cipher_text %>
    uemail: liuzhao@nyu.edu
    ucity: New Jersey
 user3:
    uid: 4
    uname: Sicong Wang
-   ulogin: 
-   upassword: 
+   ulogin: u4
+   upassword: <%= cipher_text %>
    uemail: scwang@nyu.edu
    ucity: Beijing
 user4:
    uid: 5
    uname: Kaihua Zhao
-   ulogin: 
-   upassword: 
+   ulogin: u5
+   upassword: <%= cipher_text %>
    uemail: khzhao@nyu.edu
    ucity: Beijing
 user5:
    uid: 6
-   uname: 
-   ulogin: x
-   upassword: x
+   uname: bar
+   ulogin: u6
+   upassword: <%= cipher_text %>
    uemail: a@nyu.edu
    ucity: x
 user6:
    uid: 8
    uname: foo
-   ulogin: foo
-   upassword: "$2a$10$TgMlWiZG/biM1r5UGAM/HOCt7M0ZNrl73HbHpYefESJltJmpWaChy"
+   ulogin: u7
+   upassword: <%= cipher_text %>
    uemail: xxx@123.com
    ucity: New York

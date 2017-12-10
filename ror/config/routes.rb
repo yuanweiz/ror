@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   #resources :artists
   #resources :albums
   #resources :tracks
-  #resources :users
   post '/users', to: 'users#create'
+  resources :users #FIXME: this is dangerous
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
