@@ -1,0 +1,72 @@
+play0:
+   id: 1
+   uid: 1
+   tid: 1
+play1:
+   id: 2
+   uid: 1
+   tid: 1
+play2:
+   id: 3
+   uid: 1
+   tid: 2
+play3:
+   id: 4
+   uid: 1
+   tid: 3
+play4:
+   id: 5
+   uid: 1
+   tid: 7
+play5:
+   id: 6
+   uid: 1
+   tid: 7
+play6:
+   id: 7
+   uid: 2
+   tid: 1
+play7:
+   id: 8
+   uid: 2
+   tid: 2
+play8:
+   id: 9
+   uid: 2
+   tid: 2
+play9:
+   id: 10
+   uid: 2
+   tid: 4
+play10:
+   id: 11
+   uid: 2
+   tid: 8
+play11:
+   id: 12
+   uid: 2
+   tid: 9
+play12:
+   id: 13
+   uid: 3
+   tid: 2
+play13:
+   id: 14
+   uid: 3
+   tid: 2
+play14:
+   id: 15
+   uid: 3
+   tid: 3
+play15:
+   id: 16
+   uid: 3
+   tid: 7
+play16:
+   id: 17
+   uid: 3
+   tid: 9
+play17:
+   id: 18
+   uid: 3
+   tid: 9

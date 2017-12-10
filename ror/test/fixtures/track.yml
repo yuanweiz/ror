@@ -1,0 +1,55 @@
+track0:
+   tid: 1
+   ttitle: Got to Be There
+   tgenre: pop
+   aid: 1
+track1:
+   tid: 2
+   ttitle: In Our Small Way
+   tgenre: pop
+   aid: 1
+track2:
+   tid: 3
+   ttitle: Wings of My Love
+   tgenre: pop
+   aid: 1
+track3:
+   tid: 4
+   ttitle: Way Down We Go
+   tgenre: rock
+   aid: 2
+track4:
+   tid: 5
+   ttitle: No Good
+   tgenre: rock
+   aid: 2
+track5:
+   tid: 6
+   ttitle: Broken Bones
+   tgenre: pop
+   aid: 2
+track6:
+   tid: 7
+   ttitle: Drive My Car
+   tgenre: rock
+   aid: 3
+track7:
+   tid: 8
+   ttitle: Norwegian Wood
+   tgenre: rock
+   aid: 3
+track8:
+   tid: 9
+   ttitle: Come Together
+   tgenre: rock
+   aid: 3
+track9:
+   tid: 10
+   ttitle: Songs With Same Name
+   tgenre: jazz
+   aid: 6
+track10:
+   tid: 11
+   ttitle: Songs With Same Name
+   tgenre: pop
+   aid: 7

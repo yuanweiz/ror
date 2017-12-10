@@ -1,0 +1,49 @@
+user0:
+   uid: 1
+   uname: Si Li
+   ulogin: 
+   upassword: 
+   uemail: sili@nyu.edu
+   ucity: New York
+user1:
+   uid: 2
+   uname: Wu Wang
+   ulogin: 
+   upassword: 
+   uemail: wuwang@nyu.edu
+   ucity: Washington
+user2:
+   uid: 3
+   uname: Liu Zhao
+   ulogin: 
+   upassword: 
+   uemail: liuzhao@nyu.edu
+   ucity: New Jersey
+user3:
+   uid: 4
+   uname: Sicong Wang
+   ulogin: 
+   upassword: 
+   uemail: scwang@nyu.edu
+   ucity: Beijing
+user4:
+   uid: 5
+   uname: Kaihua Zhao
+   ulogin: 
+   upassword: 
+   uemail: khzhao@nyu.edu
+   ucity: Beijing
+user5:
+   uid: 6
+   uname: 
+   ulogin: x
+   upassword: x
+   uemail: a@nyu.edu
+   ucity: x
+user6:
+   uid: 8
+   uname: foo
+   ulogin: foo
+   upassword: "$2a$10$TgMlWiZG/biM1r5UGAM/HOCt7M0ZNrl73HbHpYefESJltJmpWaChy"
+   uemail: xxx@123.com
+   ucity: New York

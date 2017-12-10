@@ -6,11 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-users = User.create( [ { uname: "Si Li", uemail: 'sili@nyu.edu', ucity: 'New York'},
-                     { uname: "Wu Wang", uemail: 'wuwang@nyu.edu', ucity: 'Washington'},
-                     { uname: "Liu Zhao", uemail: 'liuzhao@nyu.edu', ucity: 'New Jersey'},
-                     { uname: "Sicong Wang", uemail: 'scwang@nyu.edu', ucity: 'Beijing'},
-                     { uname: "Kaihua Zhao", uemail: 'khzhao@nyu.edu', ucity: 'Beijing'} ] )
+class SeedData
+    require 'bcrypt'
+    def self.cipher_text
+        BCrypt::Password.create('123456').to_s
+    end
+users = User.create( [ { uname: "Si Li", uemail: 'sili@nyu.edu', ucity: 'New York', ulogin: 'u1', upassword: cipher_text},
+                     { uname: "Wu Wang", uemail: 'wuwang@nyu.edu', ucity: 'Washington', ulogin:'u2', upassword: cipher_text},
+                     { uname: "Liu Zhao", uemail: 'liuzhao@nyu.edu', ucity: 'New Jersey', ulogin:'u3',  upassword: cipher_text},
+                     { uname: "Sicong Wang", uemail: 'scwang@nyu.edu', ucity: 'Beijing',ulogin:'u4', upassword: cipher_text},
+                     { uname: "Kaihua Zhao", uemail: 'khzhao@nyu.edu', ucity: 'Beijing',ulogin:'u5', upassword: cipher_text} ] )
 
 artists = Artist.create([
     {aname: "Michael Jackson"},
@@ -79,7 +84,7 @@ playlistTracks= PlaylistTrack.create([
     {lid: 4, tid: 10},
 ])
 
-Play.create([
+plays=Play.create([
     {uid: 1, tid: 1, ts:"2017/01/01" },
     {uid: 1, tid: 1, ts:"2017/01/01" },
     {uid: 1, tid: 2, ts:"2017/01/01" },
@@ -100,7 +105,7 @@ Play.create([
     {uid: 3, tid: 9, ts:"2017/01/01" },
 ])
 
-Follow.create([
+follows=Follow.create([
     {follower: 1, followee: 2},
     {follower: 1, followee: 3},
     {follower: 1, followee: 4},
@@ -111,7 +116,7 @@ Follow.create([
     {follower: 3, followee: 5},
 ])
 
-Like.create([
+likes = Like.create([
     {uid: 1, aid: 1, ts:"2017/01/01" },
     {uid: 1, aid: 2, ts:"2017/01/01" },
     {uid: 1, aid: 3, ts:"2017/01/01" },
@@ -129,6 +134,8 @@ Like.create([
     {uid: 4, aid: 7, ts:"2017/01/01" },
 ])
 
-Rate.create([
+rates=Rate.create([
     { uid: 1, tid: 1, score: 10, ts: "2017/11/01" },
 ])
+
+end

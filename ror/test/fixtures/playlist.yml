@@ -1,0 +1,20 @@
+playlist0:
+   lid: 1
+   ltitle: MyList
+   lpublic: true
+   uid: 1
+playlist1:
+   lid: 2
+   ltitle: Rock
+   lpublic: true
+   uid: 2
+playlist2:
+   lid: 3
+   ltitle: Pop
+   lpublic: true
+   uid: 2
+playlist3:
+   lid: 4
+   ltitle: Jazz
+   lpublic: true
+   uid: 3
