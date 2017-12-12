@@ -10,10 +10,4 @@
   <%= @playlist.ldate %>
 </p>
 
-<p>
-  <strong>Lpublic:</strong>
-  <%= @playlist.lpublic %>
-</p>
-
-<%= link_to 'Edit', edit_playlist_path(@playlist) %> |
-<%= link_to 'Back', playlists_path %>
+<%= render partial: 'tracks/tracks_table', locals: {tracks: @playlist.tracks} %>

@@ -1,0 +1,24 @@
+<div class="row">
+    <aside class="col-md-4">
+        <section class="stats">
+            <%= render 'shared/stats' %>
+        </section>
+    </aside>
+    <div class="col-md-8">
+        
+        <table>
+            <tr>
+                <th>List Name</th>
+                <th>Created on</th>
+            </tr>
+            <% @playlists.where( lpublic: true ).each do |l|%>
+                <tr>
+                    <td><a href="<%=playlist_path(l)%>">
+                            <%=l.ltitle %>
+                        </a></td>
+                    <td><%=l.ldate%></td>
+                <tr>
+            <% end%>
+        </table>
+    </div>
+</div>

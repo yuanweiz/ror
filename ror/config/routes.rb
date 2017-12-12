@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   #resources :playlists
   #resources :album_tracks
   resources :artists, only: [:index, :show]
+  resources :playlists, only: [:show]
   resources :albums, only: [:index, :show]
   resources :tracks, only: [:index, :show] do 
       member do 
