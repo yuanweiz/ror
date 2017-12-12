@@ -15,6 +15,11 @@ class User < ApplicationRecord
     has_many :playlists, dependent: :destroy, foreign_key: 'uid'
     has_many :followers, through: :followed_by_relations, source: :follower_record
     has_many :followees, through: :following_relations, source: :followee_record
+    has_many :play_relations, dependent: :destroy, class_name: 'Play', foreign_key: 'uid'
+
+    def play_history
+        self.play_relations.map{ |p| { ts: p.ts, track: p.track }}
+    end
 
     def public_playlists
         playlists.where( lpublic: true )

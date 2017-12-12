@@ -35,6 +35,12 @@ class UsersController < ApplicationController
       render 'favorite_artists'
   end
 
+  def play_history
+      set_user
+      @play_history = @user.play_history
+      render 'play_history'
+  end
+
   # GET /users/1/edit
   def edit
   end

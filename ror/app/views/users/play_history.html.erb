@@ -1,0 +1,22 @@
+<div class="row">
+    <aside class="col-md-4">
+        <section class="stats">
+            <%= render 'shared/stats' %>
+        </section>
+    </aside>
+    <div class="col-md-8">
+        <table>
+            <tr>
+                <th>timestamp</th>
+                <th>song</th>
+            </tr>
+            <% @play_history.each do |h| %>
+            <tr>
+                <td><%=h[:ts] %></td>
+                <td><%=h[:track].ttitle%></td>
+            </tr>
+
+            <% end %>
+        </table>
+    </div>
+</div>

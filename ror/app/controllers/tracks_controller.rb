@@ -1,6 +1,8 @@
 class TracksController < ApplicationController
   before_action :set_track, only: [:show, :edit, :update, :destroy]
 
+  include SessionsHelper
+
   # GET /tracks
   def index
     @tracks = Track.all
@@ -17,6 +19,13 @@ class TracksController < ApplicationController
 
   # GET /tracks/1/edit
   def edit
+  end
+
+  def play
+      set_track
+      user=current_user
+      play=Play.new uid: user.uid, tid: @track.tid, ts: Time.now
+      play.save
   end
 
   # POST /tracks
