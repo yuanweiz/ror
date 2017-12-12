@@ -1,0 +1,10 @@
+<li id="<%= track.id %>">
+     <%=track.ttitle%>
+     <%=track.tgenre%>
+     included in:
+     <% track.albums.each do |a| %>
+         <a href= '<%= album_path(a)%>' >
+             <%=a.atitle %>
+         </a>
+     <%end%>
+</li>

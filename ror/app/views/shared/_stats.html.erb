@@ -1,0 +1,28 @@
+<% @user ||= current_user %>
+<div class="stats">
+    <a href="<%= following_user_path(@user) %>">
+        <strong id="following" class="stat">
+            <%= @user.followees.count %>
+        </strong>
+        following
+    </a>
+    <a href="<%= followers_user_path(@user) %>">
+        <strong id="followers" class="stat">
+            <%= @user.followers.count %>
+        </strong>
+        followers
+    </a>
+    <a href="<%= favorite_artists_user_path(@user) %>">
+        <strong id="followers" class="stat">
+            <%= @user.favorite_artists.count %>
+        </strong>
+        favorite artists
+    </a>
+    <a href="<%= playlists_user_path(@user) %>">
+        <strong id="followers" class="stat">
+            <%= @user.playlists.count %>
+        </strong>
+        favorite artists
+    </a>
+
+</div>

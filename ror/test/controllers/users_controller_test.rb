@@ -11,4 +11,18 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       assert_equal User.count, before
     #assert_redirected_to user_url(User.last)
   end
+
+  test "should get following" do
+      get following_user_path(@user)
+      assert_response :success
+  end
+
+  test "should get followers" do
+      get followers_user_path(@user)
+      assert_response :success
+  end
+  test "should get favorite artists" do
+      get favorite_artists_user_path(@user)
+      assert_response :success
+  end
 end
