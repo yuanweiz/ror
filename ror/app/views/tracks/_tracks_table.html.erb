@@ -5,13 +5,13 @@
         <th>Included in</th>
         <th>Link</th>
     </tr>
-<% tracks.each do |track|%>
-    <tr>
-        <td><%= track.ttitle%></td>
-        <td><%= track.tgenre%></td>
-        <td><%= track.albums.map {|a| a.atitle}.join(' ') %></td>
-        <td><a href=<%= play_track_path(track)%>>click here to play</a></td>
-    </tr>
-<% end%>
+    <% tracks.each do |track|%>
+        <tr>
+            <td><%= track.ttitle%></td>
+            <td><%= track.tgenre%></td>
+            <td><%= track.albums.map {|a| a.atitle}.join(' ') %></td>
+            <td><a href=<%= play_track_path(track)%>>click here to play</a></td>
+        </tr>
+    <% end%>
 
 </table>
