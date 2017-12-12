@@ -25,4 +25,11 @@
         favorite artists
     </a>
 
+    <a href="<%= play_history_user_path(@user) %>">
+        <strong id="followers" class="stat">
+            <%= @user.play_history.count %>
+        </strong>
+        play history
+    </a>
+
 </div>

@@ -32,7 +32,16 @@ class UsersController < ApplicationController
   def favorite_artists
       set_user
       @artists = @user.favorite_artists
-      render 'favorite_artists'
+  end
+
+  def play_history
+      set_user
+      @play_history = @user.play_history
+  end
+
+  def playlists
+      set_user
+      @playlists = @user.playlists
   end
 
   # GET /users/1/edit

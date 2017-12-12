@@ -7,5 +7,5 @@
 </p>
 
 <p>
-<%=render @artist.tracks%>
+<%= render partial: 'tracks/tracks_table', locals: {tracks: @artist.tracks} %>
 </p>
