@@ -7,5 +7,20 @@
 </p>
 
 <p>
-<%=render @artist.tracks%>
+<table>
+
+    <tr>
+        <th>Track Title</th>
+        <th>Genre</th>
+        <th>Included in</th>
+    </tr>
+<% @artist.tracks.each do |track|%>
+    <tr>
+        <td><%= track.ttitle%></td>
+        <td><%= track.tgenre%></td>
+        <td><%= track.albums.map {|a| a.atitle}.join(' ') %></td>
+    <tr>
+<% end%>
+
+</table>
 </p>

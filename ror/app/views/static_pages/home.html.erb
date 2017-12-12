@@ -11,3 +11,15 @@
 <% else %>
 <% end %>
 
+<%= form_for('/search' ,method: :get) do  %>
+    <%= label_tag(:search) %>
+    <%= text_field_tag(:search) %>
+    <%= submit_tag("search") %>
+<% end %>
+
+
+<% if params[:search] %>
+    <%search_result.each do |a| %>
+        <li><%= a.aname%></li>
+    <%end %>
+<%end%>
