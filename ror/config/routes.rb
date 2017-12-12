@@ -15,10 +15,16 @@ Rails.application.routes.draw do
   #resources :likes
   #resources :playlists
   #resources :album_tracks
-  #resources :artists
+  resources :artists, only: [:index, :show]
+  resources :albums, only: [:index, :show]
   #resources :albums
   #resources :tracks
   post '/users', to: 'users#create'
-  resources :users #FIXME: this is dangerous
+  resources :users  do
+      member do 
+          get :followers, :following, :favorite_artists, :playlists
+      end
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

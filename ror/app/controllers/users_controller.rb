@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy ]
 
   # GET /users
   def index
@@ -13,6 +13,26 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+  end
+  
+  def followers
+      set_user
+      @title="Followers"
+      @users = @user.followers
+      render 'follow_page'
+  end
+
+  def following
+      set_user
+      @title="Following"
+      @users = @user.followees
+      render 'follow_page'
+  end
+
+  def favorite_artists
+      set_user
+      @artists = @user.favorite_artists
+      render 'favorite_artists'
   end
 
   # GET /users/1/edit
@@ -60,3 +80,4 @@ class UsersController < ApplicationController
       params.require(:user).permit(:uname, :uemail, :ucity, :upassword, :ulogin)
     end
 end
+

@@ -1,4 +1,13 @@
-<h1>StaticPages#home</h1>
-
-
+<h1>Database Demo</h1>
+<% if logged_in? %>
+    <p>wellcome, <%= current_user.uname%></p>
+    <div class="row">
+        <aside class="col-md-4">
+            <section class="stats">
+                <%= render 'shared/stats' %>
+            </section>
+        </aside>
+    </div>
+<% else %>
+<% end %>
 

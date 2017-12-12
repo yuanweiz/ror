@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Aname:</strong>
+  <strong>Name:</strong>
   <%= @artist.aname %>
+
 </p>
 
-<%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>
+<p>
+<%=render @artist.tracks%>
+</p>

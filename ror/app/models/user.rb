@@ -11,10 +11,13 @@ class User < ApplicationRecord
     has_many :followed_by_relations, class_name: 'Follow', foreign_key: 'followee' #primary key is by default User#primary_key
 
     #use these
-
-    has_many :liked_artists, through: :likes, source: :artist
+    has_many :favorite_artists, through: :likes, source: :artist
     has_many :playlists, dependent: :destroy, foreign_key: 'uid'
     has_many :followers, through: :followed_by_relations, source: :follower_record
     has_many :followees, through: :following_relations, source: :followee_record
+
+    def public_playlists
+        playlists.where( lpublic: true )
+    end
 
 end

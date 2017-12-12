@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
     test 'has many liked_artists' do
-        assert !User.new.liked_artists.nil?
+        assert !User.new.favorite_artists.nil?
     end
 
     test 'has many followers' do

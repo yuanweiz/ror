@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class TrackTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+   test "belongs to many albums" do
+       assert !Track.new.albums.nil?
+   end
 end
