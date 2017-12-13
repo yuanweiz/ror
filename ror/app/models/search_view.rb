@@ -1,0 +1,2 @@
+class SearchView < ApplicationRecord
+end

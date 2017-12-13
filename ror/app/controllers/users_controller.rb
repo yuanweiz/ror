@@ -34,6 +34,38 @@ class UsersController < ApplicationController
       @artists = @user.favorite_artists
   end
 
+  def add_to_list
+      set_user
+      lid=params[:lid]
+      tid = params[:tid]
+      list = @user.playlists.find_by( lid: lid )
+      track = Track.find_by(tid: tid)
+      if list && track && list.tracks.find_by(tid: tid).nil? then
+          list.tracks << track
+      end
+      redirect_to playlists_user_path(@user)
+  end
+
+  def unlikes_artist
+      set_user
+      aid=params[:aid]
+      artist = Artist.find_by( aid: aid)
+      if @user && !artist.nil? then
+          @user.unlikes!(artist)
+      end
+      redirect_to favorite_artists_user_path(@user)
+  end
+
+  def likes_artist
+      set_user
+      aid=params[:aid]
+      artist = Artist.find_by( aid: aid)
+      if @user && !artist.nil? then
+          @user.likes!(artist)
+      end
+      redirect_to favorite_artists_user_path(@user)
+  end
+
   def play_history
       set_user
       @play_history = @user.play_history

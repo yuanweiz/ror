@@ -19,7 +19,5 @@
 
 
 <% if params[:search] %>
-    <%search_result.each do |a| %>
-        <li><%= a.aname%></li>
-    <%end %>
+    <%= render partial: 'static_pages/searchview_table', locals: {results: search_result } %>
 <%end%>

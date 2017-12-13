@@ -1,8 +1,10 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
+    include SessionsHelper
   setup do
       @user =  User.first #users(:one)
+      #log_in @user
   end
 
   test "should not create without password" do
@@ -25,4 +27,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       get favorite_artists_user_path(@user)
       assert_response :success
   end
+
+  test "should get play history" do
+      get play_history_user_path(@user)
+      assert_response :success
+  end
+
 end

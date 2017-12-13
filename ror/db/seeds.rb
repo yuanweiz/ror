@@ -18,10 +18,10 @@ users = User.create( [ { uname: "Si Li", uemail: 'sili@nyu.edu', ucity: 'New Yor
                      { uname: "Kaihua Zhao", uemail: 'khzhao@nyu.edu', ucity: 'Beijing',ulogin:'u5', upassword: cipher_text} ] )
 
 artists = Artist.create([
-    {aname: "Michael Jackson"},
-    {aname: "Kaleo" },
-    {aname: "The Beatles" },
-    {aname: "Noname"},      #these dudes have 
+    {aname: "Michael Jackson", adesc: "Michael Jackson is known as the king of pop"},
+    {aname: "Kaleo" , adesc: "Kaleo is an Icelandic blues/rock band that formed at Mosfellsbær in 2012."},
+    {aname: "The Beatles", adesc: "The Beatles were an English rock band formed in Liverpool in 1960." },
+    {aname: "Noname", adesc: "no descriptions"},      #these dudes have 
     {aname: "Another Noname"}, # no albums
     {aname: "Alice"},  
     {aname: "Bob"}  

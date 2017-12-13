@@ -30,6 +30,9 @@ Rails.application.routes.draw do
   resources :users  do
       member do 
           get :followers, :following, :favorite_artists, :playlists, :play_history
+          delete :unlikes_artist
+          put :likes_artist
+          patch :add_to_list
       end
   end
 

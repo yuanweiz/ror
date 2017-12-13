@@ -6,10 +6,20 @@
     </aside>
     <div class="col-md-8">
         <h3><%= @title %></h3>
-        <% if @artists.any? %>
-            <ul class="favorite artists">
-                <%= render @artists %>
-            </ul>
-        <% end %>
+        <table>
+            <tr>
+                <th>Artist Name</th>
+                <th></th>
+            </tr>
+            <% @artists.each do |a| %>
+                <tr>
+                    <td><%=link_to a.aname, artist_path(a)%></td>
+                    <td>
+                        <%=render partial: 'shared/like_unlike_artist', locals: {user: @user, artist: a}%>
+                    </td>
+                </tr>
+            <%end%>
+
+        </table>
     </div>
 </div>

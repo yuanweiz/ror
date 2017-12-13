@@ -25,4 +25,15 @@ class User < ApplicationRecord
         playlists.where( lpublic: true )
     end
 
+    def likes?(artist)
+        !favorite_artists.find_by( aid: artist.aid).nil?
+    end
+
+    def likes!(artist)
+        favorite_artists << artist
+    end
+
+    def unlikes!(artist)
+        favorite_artists.delete(artist)
+    end
 end

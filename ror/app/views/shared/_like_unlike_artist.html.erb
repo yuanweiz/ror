@@ -1,0 +1,5 @@
+<% if user.likes? artist %>
+    <%=link_to 'Unlike', unlikes_artist_user_path(user)+'?aid='+artist.aid.to_s, method: :delete %>
+<% else %>
+    <%=link_to 'Like', likes_artist_user_path(user)+'?aid='+artist.aid.to_s,method: :put %>
+<%end%>

@@ -1,0 +1,39 @@
+<table>
+    <tr>
+        <th>Artist Name</th>
+        <th>Artist Description</th>
+        <th>Track Title</th>
+        <th>Track Genre</th>
+        <% if logged_in? %>
+        <th>Add To Playlist</th>
+        <% end%>
+        <th></th>
+
+
+    </tr>
+    <% results.each do |r| %>
+    <tr>
+        <td><%= link_to r.aname, artist_path(Artist.find(r.aid)) %></td>
+        <td><%= r.adesc %></td>
+        <td><%= r.ttitle%></td>
+        <td><%= r.tgenre%></td>
+        <% if logged_in? %>
+        <td>
+            <select name='lid' form="<%="form_"+ r.tid.to_s%>">
+                <%= u = current_user%>
+                <%u.playlists.each do |l|%>
+                    <option value=<%=l.lid%>> <%=l.ltitle%></option>
+                <%end%>
+            </select>
+        </td>
+        <td>
+            <%= form_for u, html: {id: "form_" + r.tid.to_s}, url: add_to_list_user_path(u) do |f| %>
+                <%= f.hidden_field :tid, value: r.tid %>
+                <input type="hidden" name="tid" value=<%=r.tid%>>
+                <%= f.submit "Add to list", class: "btn" %>
+            <% end%>
+        <% end%>
+        </td>
+    </tr>
+    <%end%>
+</table>

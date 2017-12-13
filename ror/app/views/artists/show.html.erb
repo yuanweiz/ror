@@ -5,6 +5,12 @@
   <%= @artist.aname %>
 
 </p>
+<p>
+<% if current_user %>
+    <%= render partial: 'shared/like_unlike_artist', locals: {user: current_user, artist: @artist}%>
+<% end %>
+
+</p>
 
 <p>
 <%= render partial: 'tracks/tracks_table', locals: {tracks: @artist.tracks} %>
