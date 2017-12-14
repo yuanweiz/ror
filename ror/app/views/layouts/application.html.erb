@@ -11,29 +11,33 @@
   <%= render 'layouts/header' %>
 
   <body>
-    <div class="container">
-		<h1>Database Demo</h1>
-		<% if logged_in? %>
-			<p>wellcome, <%= current_user.uname%></p>
-			<div class="row">
-				<aside class="col-md-6">
-					<section class="stats">
-						<%= render 'shared/stats' %>
-					</section>
-				</aside>
-			</div>
-		<% else %>
-		<% end %>
-		<br>
-		<%= form_for('/search' ,method: :get) do  %>
-			<%= label_tag(:search) %>
-			<%= text_field_tag(:search) %>
-			<%= submit_tag("search") %>
-		<% end %>
-
+	  <div id= "lwarp" class="container " >
+		  <% if not current_page? '/login' %>
+			  <h1>Database Demo</h1>
+			  <% if logged_in? %>
+				  <p>wellcome, <%= current_user.uname%></p>
+				  <div class="row">
+					  <aside class="col-md-6">
+						  <section class="stats">
+							  <%= render 'shared/stats' %>
+						  </section>
+					  </aside>
+				  </div>
+			  <% else %>
+			  <% end %>
+			  
+			  <br>
+			  
+			  <%= form_for('/search' ,method: :get, url: root_url ) do  %>
+				  <%= label_tag(:search) %>
+				  <%= text_field_tag(:search) %>
+				  <%= submit_tag("search") %>
+			  <% end %>
+		  <% end %>
+		  <%= yield %>
 
 	</div>
-    <%= yield %>
+
   </body>
   
 

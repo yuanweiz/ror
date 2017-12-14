@@ -1,16 +1,12 @@
-<div id="rwarp" class="col-lg-11  ">
 
-
-	<% provide(:title, @title) %>
-	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<h3><%= @title %></h3>
-			<% if @users.any? %>
-				<ul class="users follow">
-					<%= render @users %>
-				</ul>
-			<% end %>
-		</div>
+<% provide(:title, @title) %>
+<div class="row">
+	<div class="col-md-11 ">
+		<h3><%= @title %></h3>
+		<% if @users.any? %>
+			<ul class="users follow">
+				<%= render @users %>
+			</ul>
+		<% end %>
 	</div>
-
 </div>
