@@ -1,5 +1,6 @@
 class PlaylistsController < ApplicationController
   before_action :set_playlist, only: [:show, :edit, :update, :destroy]
+  include SessionsHelper
 
   # GET /playlists
   def index
@@ -12,7 +13,11 @@ class PlaylistsController < ApplicationController
 
   # GET /playlists/new
   def new
-    @playlist = Playlist.new
+      if !logged_in? then
+          redirect_to '/login'
+          return 
+      end
+      @playlist = Playlist.new
   end
 
   # GET /playlists/1/edit
@@ -21,10 +26,15 @@ class PlaylistsController < ApplicationController
 
   # POST /playlists
   def create
+      if !logged_in? then
+          redirect_to login_url
+          return 
+      end
     @playlist = Playlist.new(playlist_params)
-
-    if @playlist.save
-      redirect_to @playlist, notice: 'Playlist was successfully created.'
+    @playlist.ldate = Time.now
+    user = current_user
+    if user.playlists << @playlist
+      redirect_to playlists_user_path(user)
     else
       render :new
     end
@@ -53,6 +63,6 @@ class PlaylistsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def playlist_params
-      params.require(:playlist).permit(:ltitle, :ldate, :lpublic)
+      params.require(:playlist).permit(:ltitle, :lpublic)
     end
 end
