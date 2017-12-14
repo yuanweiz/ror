@@ -74,6 +74,7 @@ class UsersController < ApplicationController
   def playlists
       set_user
       @playlists = @user.playlists
+      @newlist = Playlist.new
   end
 
   # GET /users/1/edit

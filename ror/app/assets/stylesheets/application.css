@@ -824,6 +824,8 @@ div.desc {
 #lwarp{
     padding-top: 5%;
 	padding-left: 5%;
+}
+
 	
 /* make 2 columns */
 .column {
@@ -836,6 +838,4 @@ div.desc {
     content: "";
     display: table;
     clear: both;
-}
-
 }

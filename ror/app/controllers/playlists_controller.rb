@@ -32,6 +32,7 @@ class PlaylistsController < ApplicationController
       end
     @playlist = Playlist.new(playlist_params)
     @playlist.ldate = Time.now
+    @playlist.lpublic = true
     user = current_user
     if user.playlists << @playlist
       redirect_to playlists_user_path(user)

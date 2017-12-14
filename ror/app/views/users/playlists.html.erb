@@ -1,13 +1,23 @@
-<div id = "hwarp" class="col-lg-11  ">
+<div id = "rwarp" class="col-lg-11  ">
 
 	<div class="row">
 		<div class="col-md-6">
-			<%= link_to 'Create a new List', new_playlist_url %>
+			<%= form_for(@newlist, url: playlists_url )do |f| %>
+				<div class="field">
+					<%= f.label :ltitle %>
+					<%= f.text_field :ltitle %>
+				</div>
+
+				<div class="actions">
+					<%= f.submit %>
+				</div>
+			<% end %>
 			<table>
 				<tr>
 					<th>List Name</th>
 					<th>Created on</th>
 				</tr>
+
 				<% @playlists.where( lpublic: true ).each do |l|%>
 					<tr>
 						<td><a href="<%=playlist_path(l)%>">
@@ -20,3 +30,4 @@
 		</div>
 	</div>
 </div>
+

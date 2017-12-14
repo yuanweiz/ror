@@ -1,13 +1,15 @@
-<p id="notice"><%= notice %></p>
+<div id="rwarp" class="col-lg-11  ">
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Ltitle:</strong>
-  <%= @playlist.ltitle %>
-</p>
+	<p>
+	  <strong>Ltitle:</strong>
+	  <%= @playlist.ltitle %>
+	</p>
 
-<p>
-  <strong>Ldate:</strong>
-  <%= @playlist.ldate %>
-</p>
+	<p>
+	  <strong>Ldate:</strong>
+	  <%= @playlist.ldate %>
+	</p>
 
-<%= render partial: 'tracks/tracks_table', locals: {tracks: @playlist.tracks} %>
+	<%= render partial: 'tracks/tracks_table', locals: {tracks: @playlist.tracks} %>
+</div>
