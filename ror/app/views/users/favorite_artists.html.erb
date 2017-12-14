@@ -1,25 +1,24 @@
-<div class="row">
-    <aside class="col-md-4">
-        <section class="stats">
-            <%= render 'shared/stats' %>
-        </section>
-    </aside>
-    <div class="col-md-8">
-        <h3><%= @title %></h3>
-        <table>
-            <tr>
-                <th>Artist Name</th>
-                <th></th>
-            </tr>
-            <% @artists.each do |a| %>
-                <tr>
-                    <td><%=link_to a.aname, artist_path(a)%></td>
-                    <td>
-                        <%=render partial: 'shared/like_unlike_artist', locals: {user: @user, artist: a}%>
-                    </td>
-                </tr>
-            <%end%>
+<div id = "lwarp" class="col-lg-11  ">
 
-        </table>
-    </div>
+	<div class="row">
+		<div class="col-md-11">
+			<h3><%= @title %></h3>
+			<table>
+				<tr>
+					<th>Artist Name</th>
+					<th></th>
+				</tr>
+				<% @artists.each do |a| %>
+					<tr>
+						<td><%=link_to a.aname, artist_path(a)%></td>
+						<td>
+							<%=render partial: 'shared/like_unlike_artist', locals: {user: @user, artist: a}%>
+						</td>
+					</tr>
+				<%end%>
+
+			</table>
+		</div>
+	</div>
+
 </div>

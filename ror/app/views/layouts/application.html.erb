@@ -5,12 +5,36 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'bootstrap','application', 'data-turbolinks-track': 'reload' %>
   </head>
+  
   <%= render 'layouts/header' %>
 
   <body>
+    <div class="container">
+		<h1>Database Demo</h1>
+		<% if logged_in? %>
+			<p>wellcome, <%= current_user.uname%></p>
+			<div class="row">
+				<aside class="col-md-6">
+					<section class="stats">
+						<%= render 'shared/stats' %>
+					</section>
+				</aside>
+			</div>
+		<% else %>
+		<% end %>
+		<br>
+		<%= form_for('/search' ,method: :get) do  %>
+			<%= label_tag(:search) %>
+			<%= text_field_tag(:search) %>
+			<%= submit_tag("search") %>
+		<% end %>
+
+
+	</div>
     <%= yield %>
   </body>
-<%=link_to 'Back', :back %>
+  
+
 </html>

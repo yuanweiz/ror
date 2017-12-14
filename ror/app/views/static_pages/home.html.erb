@@ -1,23 +1,5 @@
-<h1>Database Demo</h1>
-<% if logged_in? %>
-    <p>wellcome, <%= current_user.uname%></p>
-    <div class="row">
-        <aside class="col-md-4">
-            <section class="stats">
-                <%= render 'shared/stats' %>
-            </section>
-        </aside>
-    </div>
-<% else %>
-<% end %>
-
-<%= form_for('/search' ,method: :get) do  %>
-    <%= label_tag(:search) %>
-    <%= text_field_tag(:search) %>
-    <%= submit_tag("search") %>
-<% end %>
-
-
-<% if params[:search] %>
-    <%= render partial: 'static_pages/searchview_table', locals: {results: search_result } %>
-<%end%>
+<div id="hwarp" >
+		<% if params[:search] %>
+			<%= render partial: 'static_pages/searchview_table', locals: {results: search_result } %>
+		<%end%>
+</div>
