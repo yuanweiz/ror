@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ror</title>
+    <title>Database Demo</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,8 +11,8 @@
   <%= render 'layouts/header' %>
 
   <body>
-	  <div id= "lwarp" class="container " >
-		  <% if not current_page? '/login' %>
+	  <div id= "hwarp" class="container " >
+		  <% if not (current_page? '/login' ) and not (current_page? '/signup' ) then %> 
 			  <h1>Database Demo</h1>
 			  <% if logged_in? %>
 				  <p>wellcome, <%= current_user.uname%></p>
@@ -25,19 +25,19 @@
 				  </div>
 			  <% else %>
 			  <% end %>
-			  
 			  <br>
+			  <div class="row">
+				  <aside class="col-md-6">
+					  <section class="stats">
+						  <%= link_to 'Show All Artists', artists_url %>
+						  <%= link_to 'Show All Songs', tracks_url %>
+					  </section>
+				  </aside>
+			  </div>
 			  
-			  <%= form_for('/search' ,method: :get, url: root_url ) do  %>
-				  <%= label_tag(:search) %>
-				  <%= text_field_tag(:search) %>
-				  <%= submit_tag("search") %>
-			  <% end %>
 		  <% end %>
 		  <%= yield %>
-
-	</div>
-
+	  </div>
   </body>
   
 

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy ]
+  before_action :set_user, only: [:show, :edit, :update, :destroy , :follows, :unfollows]
 
+  include SessionsHelper
   # GET /users
   def index
     @users = User.all
@@ -15,6 +16,23 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
+  def follows
+	  uid=params[:uid]
+	  other = User.find_by( uid: uid)
+	  if @user == current_user && other && @user.followees.find_by(uid: uid).nil?
+		  @user.followees << other
+	  end
+	redirect_to following_user_path(@user)
+  end
+  def unfollows
+	  uid=params[:uid]
+	  other = User.find_by( uid: uid)
+	  if @user == current_user && other && @user.followees.find_by(uid: uid)
+		  @user.followees.delete other
+	  end
+	redirect_to following_user_path(@user)
+  end
+
   def followers
       set_user
       @title="Followers"

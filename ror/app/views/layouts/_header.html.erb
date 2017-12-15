@@ -1,11 +1,18 @@
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
 		<div class="navbar-header">
-		  <%= link_to "Home", root_path, id: "brand-name", class: "navbar-brand"%>
+				  <%= link_to "Home", root_path, id: "brand-name", class: "navbar-brand"%>
 		</div> <!--navbar-header -->
-		
+		<div id = search_bar >
+			  <%= form_for('/search' ,method: :get, url: root_url ) do  %>
+			  <%= label_tag(:search) %>
+			  <%= text_field_tag(:search) %>
+			  <%= submit_tag("search") %>
+			  <% end %>
+		</div>
 		
 		<div class="nav navbar-nav navbar-right">
+		
 			<% if logged_in? %>
 				<li><%= link_to "Profile", current_user %> </li>
 						<li><%= link_to "Settings", '#' %> </li>

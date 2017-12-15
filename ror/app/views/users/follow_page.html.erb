@@ -1,12 +1,30 @@
+<div  id = "rwarp" class="col-lg-11  ">
+	<% provide(:title, @title) %>
+	<div class="row">
+		<div class="col-md-11 ">
+			<h3><%= @title %></h3>
 
-<% provide(:title, @title) %>
-<div class="row">
-	<div class="col-md-11 ">
-		<h3><%= @title %></h3>
-		<% if @users.any? %>
-			<ul class="users follow">
-				<%= render @users %>
-			</ul>
-		<% end %>
+				<table>
+					<tr>
+							<th>User Name</th>
+							<th>User Location</th>
+							<th>Follow/Unfollow</th>
+					</tr>
+					<% @users.each do |u| %>
+					<tr>
+							<td><%=link_to u.uname, playlists_user_path(u)%></td>
+							<td><%=u.ucity%></td>
+							<td>
+							<% if @user.followees.find_by( uid: u.uid ) %>
+									<%= link_to 'Unfollow',unfollows_user_path(current_user)+'?uid='+u.uid.to_s,method: :put%>
+							<%else%>
+									<%= link_to 'Follow',follows_user_path(current_user)+'?uid='+u.uid.to_s,method: :put %>
+							<%end%>
+							</td>
+					</tr>
+					<%end%>
+				</table>
+
+		</div>
 	</div>
 </div>

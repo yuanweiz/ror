@@ -11,5 +11,23 @@
 	  <%= @playlist.ldate %>
 	</p>
 
-	<%= render partial: 'tracks/tracks_table', locals: {tracks: @playlist.tracks} %>
+	<table>
+		<tr>
+			<th>Track Title</th>
+			<th>Genre</th>
+			<th>Included in</th>
+			<th>Link</th>
+			<th>Delete</th>
+		</tr>
+		<% @playlist.tracks.each do |track|%>
+			<tr>
+				<td><%= track.ttitle%></td>
+				<td><%= track.tgenre%></td>
+				<td><%= track.albums.map {|a| a.atitle}.join(' ') %></td>
+				<td><a href=<%= play_track_path(track) %>>click here to play</a></td>
+				<td><%= link_to 'Delete', delete_track_playlist_url(@playlist)+'?tid='+ track.tid.to_s, method: :delete %></td>
+			</tr>
+		<% end%>
+
+	</table>
 </div>

@@ -129,16 +129,18 @@ a:focus {
 	BOOTSTRAP MODIFICATIONS & TWEAKS
 ################################################################# */
 .navbar {
-	min-height: 50px;
+	min-height: 70px;
 	padding-top: 5px;
 	margin-bottom: 0px;
 	padding-bottom: 0px;
+
 }
 
 .navbar-brand {
 	font-family: 'Raleway', sans-serif;
 	font-weight: 900;
 }
+
 
 .navbar-header .navbar-brand {
 	color: white;
@@ -838,4 +840,17 @@ div.desc {
     content: "";
     display: table;
     clear: both;
+}
+
+#search_bar{
+	margin-top:-5px;
+	float:left;
+	padding-left: 10%;
+}
+
+.stats{
+	font-size: 15px;
+}
+.stats a{
+	margin-left:5px;
 }

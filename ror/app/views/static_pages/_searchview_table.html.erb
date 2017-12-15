@@ -5,6 +5,7 @@
 			<th>Artist Description</th>
 			<th>Track Title</th>
 			<th>Track Genre</th>
+			<th>Play</th>
 			<% if logged_in? %>
 			<th>Add To Playlist</th>
 			<th></th>
@@ -17,6 +18,7 @@
 			<td><%= r.adesc %></td>
 			<td><%= r.ttitle%></td>
 			<td><%= r.tgenre%></td>
+			<td><%=link_to 'Play', play_track_path(r.tid) %></td>
 			<% if logged_in? %>
 			<td>
 				<select name='lid' form="<%="form_"+ r.tid.to_s%>">

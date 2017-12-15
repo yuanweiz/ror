@@ -1,5 +1,5 @@
 class PlaylistsController < ApplicationController
-  before_action :set_playlist, only: [:show, :edit, :update, :destroy]
+  before_action :set_playlist, only: [:show, :edit, :update, :destroy, :delete_track]
   include SessionsHelper
 
   # GET /playlists
@@ -52,8 +52,23 @@ class PlaylistsController < ApplicationController
 
   # DELETE /playlists/1
   def destroy
-    @playlist.destroy
-    redirect_to playlists_url, notice: 'Playlist was successfully destroyed.'
+	  user = current_user 
+	  if user and user.playlists.include? @playlist then
+		  @playlist.destroy
+		  redirect_to playlists_user_path(user), notice: 'Playlist was successfully destroyed.'
+		  
+	  else
+		  render status: 403
+	  end
+  end
+
+  def delete_track
+	  tid = params[:tid]
+	  track = @playlist.tracks.find_by( tid: tid)
+	  if track then
+		  @playlist.tracks.delete (track)
+	  end
+	  redirect_to @playlist
   end
 
   private

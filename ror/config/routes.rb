@@ -17,7 +17,11 @@ Rails.application.routes.draw do
   #resources :playlists
   #resources :album_tracks
   resources :artists, only: [:index, :show]
-  resources :playlists #, only: [:show, :create, :destroy]
+  resources :playlists ,only: [:show, :create, :destroy] do
+	  member do
+		  delete :delete_track
+	  end
+  end
   resources :albums, only: [:index, :show]
   resources :tracks, only: [:index, :show] do 
       member do 
@@ -32,6 +36,7 @@ Rails.application.routes.draw do
           get :followers, :following, :favorite_artists, :playlists, :play_history
           delete :unlikes_artist
           put :likes_artist
+	  put :unfollows, :follows
           patch :add_to_list
       end
   end
