@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy , :follows, :unfollows]
+  before_action :set_user, only: [:show, :edit, :update, :destroy , :follows, :unfollows, :followers, :following]
 
   include SessionsHelper
   # GET /users
@@ -34,14 +34,20 @@ class UsersController < ApplicationController
   end
 
   def followers
-      set_user
+	  if !logged_in?
+		  redirect_to login_url
+		  return 
+	  end
       @title="Followers"
       @users = @user.followers
       render 'follow_page'
   end
 
   def following
-      set_user
+	  if !logged_in?
+		  redirect_to login_url
+		  return
+	  end
       @title="Following"
       @users = @user.followees
       render 'follow_page'

@@ -1,0 +1,5 @@
+<% if current_user.followees.find_by( uid: uid ) %>
+		<%= link_to 'Unfollow',unfollows_user_path(current_user)+'?uid='+uid.to_s,method: :put%>
+<%else%>
+		<%= link_to 'Follow',follows_user_path(current_user)+'?uid='+uid.to_s,method: :put %>
+<%end%>

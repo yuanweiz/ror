@@ -14,14 +14,14 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     #assert_redirected_to user_url(User.last)
   end
 
-  test "should get following" do
+  test "should not get following" do
       get following_user_path(@user)
-      assert_response :success
+      assert_redirected_to '/login'
   end
 
-  test "should get followers" do
+  test "should not get followers" do
       get followers_user_path(@user)
-      assert_response :success
+      assert_redirected_to '/login'
   end
   test "should get favorite artists" do
       get favorite_artists_user_path(@user)

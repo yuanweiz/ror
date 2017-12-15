@@ -854,3 +854,7 @@ div.desc {
 .stats a{
 	margin-left:5px;
 }
+
+.f_left{
+	float:left;
+}
