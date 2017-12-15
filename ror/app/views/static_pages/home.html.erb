@@ -1,5 +1,6 @@
-<div id="hwarp" >
+<div  >
 		<% if params[:search] %>
-			<%= render partial: 'static_pages/searchview_table', locals: {results: search_result } %>
+
+			<%= render partial: 'static_pages/searchview_table', locals: {results: search_result, keyword: params[:search] } %>
 		<%end%>
 </div>

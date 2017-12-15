@@ -10,7 +10,7 @@
 				</tr>
 				<% @play_history.each do |h| %>
 				<tr>
-					<td><%=h[:ts] %></td>
+					<td><%=h[:ts].strftime "%m/%d/%Y %I:%M%p" %></td>
 					<td><%=h[:track].ttitle%></td>
 				</tr>
 

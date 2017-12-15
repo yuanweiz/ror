@@ -29,7 +29,7 @@
 						<td><a href="<%=playlist_path(l)%>">
 								<%=l.ltitle %>
 							</a></td>
-						<td><%=l.ldate%></td>
+						<td><%=l.ldate.strftime "%m/%d/%Y %I:%M%p"%></td>
 						<% if @user == current_user %>
 							<td><%= link_to 'Delete', playlist_path(l), method: :delete %></td>
 						<%end%>
