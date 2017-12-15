@@ -5,6 +5,10 @@
         <th>Included in</th>
 	<th>Artist</th>
         <th>Link</th>
+	<% if logged_in? %>
+		<th>Add To Playlist</th>
+		<th></th>
+	<% end%>
     </tr>
     <% tracks.each do |track|%>
         <tr>
@@ -13,6 +17,23 @@
             <td><%= track.albums.map {|a| a.atitle}.join(' ') %></td>
 	    <td><%= track.artist.aname %></td>
             <td><a href=<%= play_track_path(track) %>>click here to play</a></td>
+	    <% if logged_in? %>
+		    <td>
+			    <select name='lid' form="<%="form_"+ track.tid.to_s%>">
+				    <%= u = current_user%>
+				    <%u.playlists.each do |l|%>
+					    <option value=<%=l.lid%>> <%=l.ltitle%></option>
+				    <%end%>
+			    </select>
+		    </td>
+		    <td>
+			    <%= form_for u, html: {id: "form_" + track.tid.to_s}, url: add_to_list_user_path(u) do |f| %>
+				    <%= f.hidden_field :tid, value: track.tid %>
+				    <input type="hidden" name="tid" value=<%=track.tid%>>
+				    <%= f.submit "Add to list", class: "btn" %>
+			    <% end%>
+		    </td>
+	    <% end%>
         </tr>
     <% end%>
 </table>

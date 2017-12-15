@@ -68,6 +68,7 @@ class UsersController < ApplicationController
           list.tracks << track
       end
       redirect_to playlists_user_path(@user)
+      #render nothing: true, status: 204
   end
 
   def unlikes_artist

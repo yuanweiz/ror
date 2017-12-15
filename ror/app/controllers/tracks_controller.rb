@@ -24,7 +24,7 @@ class TracksController < ApplicationController
   def play
       set_track
       user=current_user
-      if @user
+      if user
 	      play=Play.new uid: user.uid, tid: @track.tid, ts: Time.now
 	      play.save
       end
